@@ -1,0 +1,18 @@
+.heroSection{
+    height: 100vh;
+    width: 100vw;
+}
+
+.hero{
+    background: url("./images/hero1.jpg") no-repeat center rgba(0,0,0, .6);
+    background-size: cover;
+    height: 60%;
+    background-blend-mode: overlay;
+    color: white;
+}
+
+.header{
+    background: white;
+    /* backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px); */
+}
