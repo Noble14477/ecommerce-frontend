@@ -5,12 +5,19 @@ import { NigeriaStates } from "../data/NigeriaStates";
 import { useDispatch, useSelector } from "react-redux";
 import { saveShippingAddress } from "../redux/actions/orderActions";
 import Footer from "../components/Footer";
+import isEmpty from "validator/lib/isEmpty";
+import { ErrMessages } from "../components/Messages";
+
+
 const Shipping = () => {
+  const [error, setError] = useState("")
+
   const [address, setAddress] = useState("");
   const [address2, setAddress2] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
 
   const { shippingAddress } = useSelector((state) => state.order);
   const navigate = useNavigate();
@@ -41,16 +48,22 @@ const Shipping = () => {
   const handelSubmit = (e) => {
     e.preventDefault();
 
-    const shippingData = {
-      address,
-      address2,
-      city,
-      state,
-      zip,
-    };
-
-    dispatch(saveShippingAddress(shippingData));
-    navigate("/payment");
+    if (isEmpty(address) || isEmpty(address2) || isEmpty(city) || isEmpty(state) || isEmpty(zip)) {
+      setError("All feilds are required")
+    } else {
+      
+      const shippingData = {
+        address,
+        address2,
+        phoneNo,
+        city,
+        state,
+        zip,
+      };
+  
+      dispatch(saveShippingAddress(shippingData));
+      navigate("/payment");
+    }
   };
   return (
     <div className="mt-[5rem]">
@@ -60,6 +73,7 @@ const Shipping = () => {
         </h2>
       </div>
       <div className="py-6 max-w-[80%] md:max-w-[70%] mx-auto">
+        {error && ErrMessages(error)}
         <div>
           <h4 className="text-xl py-2 font-bold">Shipping Address</h4>
         </div>
@@ -88,6 +102,19 @@ const Shipping = () => {
               placeholder="eg. Apartment no."
               value={address2}
               onChange={(e) => setAddress2(e.target.value)}
+            />
+          </div>
+          <div className="py-4">
+            <label className="text-lg p-1" htmlFor="inputNumber">
+              Phone Number
+            </label>
+            <input
+              className="w-full text-lg bg-gray-100 outline-2 outline-green-500 rounded-md p-2 md-2"
+              type="number"
+              id="inputNumber"
+              placeholder="eg. Apartment no."
+              value={phoneNo}
+              onChange={(e) => setPhoneNo(e.target.value)}
             />
           </div>
 

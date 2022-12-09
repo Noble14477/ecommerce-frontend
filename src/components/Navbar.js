@@ -5,6 +5,8 @@ import { isAuthenticated, logout } from "./auth";
 import {
   FaEdit,
   FaHome,
+  FaInfo,
+  FaPhone,
   FaShoppingBag,
   FaShoppingCart,
   FaSignInAlt,
@@ -28,53 +30,60 @@ const Navbar = () => {
     });
   };
   return (
-    <div className=" w-[100vw] header fixed top-0 z-50">
-      <div className="w-full md:px-10 px-2 relative">
-        <div className=" w-full flex items-center justify-between text-black px-10 py-4 ">
-          <h1 className="text-2xl font-bold text-[#7c2d12]">LOGO.</h1>
+    <div className=" w-full header fixed top-0 z-50 bg-gray-800">
+      <div className="w-full px-2 md:px-6 relative">
+        <div className=" w-full flex items-center justify-between text-black px-10 md:px-0 lg:px-10 py-4 ">
+          <h1 className="text-2xl font-bold text-white" style={{fontFamily: "cursive"}}><Link to="/"> Gina's <i className="text-yellow-500">Kitchen</i></Link></h1>
 
           {/* navigation for md & lg screen */}
 
           <div className="flex-1">
-            <ul className="md:flex float-right hidden text-black uppercase ">
+            <ul className="md:flex float-right hidden items-center text-white uppercase">
               {!isAuthenticated() && (
                 <Fragment>
                   <li className="mx-4">
                     {" "}
-                    <Link to="/" className="flex items-center">
-                      <FaHome className="mx-1 text-md" />
+                    <Link to="/" className="flex items-center hover:text-yellow-500 ease-in-out duration-150 md:text-[.8rem] lg:text-[1rem]">
                       Home
                     </Link>
                   </li>
 
                   <li className="mx-4">
                     {" "}
-                    <Link to="/shop" className="flex items-center">
-                      <FaShoppingBag className="mx-1 text-md" />
+                    <Link to="/shop" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150 md:text-[.8rem] lg:text-[1rem]">
                       Shop
                     </Link>
                   </li>
                   <li className="mx-4 relative">
                     {" "}
-                    <Link to="/cart" className="flex items-center">
-                      <FaShoppingCart className="mx-1 text-md" />
+                    <Link to="/cart" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150 md:text-[.8rem] lg:text-[1rem]">
                       Cart{" "}
-                      <span className="text-sm absolute top-[-50%] right-[-25px] bg-red-500 px-2 text-white rounded-md">
+                      <span className="text-sm absolute top-[-50%] right-[-20px] bg-red-500 px-1 text-xm text-white rounded-md">
                         {cart.length}
                       </span>
                     </Link>
                   </li>
                   <li className="mx-4">
                     {" "}
-                    <Link to="/signin" className="flex items-center">
-                      <FaSignInAlt className="mx-1 text-md" />
+                    <Link to="/about" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150 md:text-[.8rem] lg:text-[1rem]">
+                      About
+                    </Link>
+                  </li>
+                  <li className="mx-4">
+                    {" "}
+                    <Link to="/contact" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150 md:text-[.8rem] lg:text-[1rem]">
+                      Contact
+                    </Link>
+                  </li>
+                  <li className="mx-4">
+                    {" "}
+                    <Link to="/signin" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150 md:text-[.8rem] lg:text-[1rem]">
                       Sign In
                     </Link>
                   </li>
                   <li className="mx-4">
                     {" "}
-                    <Link to="/signup" className="flex items-center">
-                      <FaEdit className="mx-1 text-md" />
+                    <Link to="/signup" className="flex items-center border py-1 px-2 rounded-xl text-white bg-yellow-500  md:text-[.8rem] lg:text-[1rem]">
                       Sign Up
                     </Link>
                   </li>
@@ -84,14 +93,14 @@ const Navbar = () => {
                 <Fragment>
                   <li className="mx-4">
                     {" "}
-                    <Link to="/user/dashboard" className="flex items-center">
+                    <Link to="/user/dashboard" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <MdDashboard className="mx-1 text-md" />
                       Dashboard
                     </Link>
                   </li>
                   <li className="mx-4">
                     {" "}
-                    <Link to="/" className="flex items-center">
+                    <Link to="/" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaHome className="mx-1 text-md" />
                       Home
                     </Link>
@@ -99,14 +108,14 @@ const Navbar = () => {
 
                   <li className="mx-4">
                     {" "}
-                    <Link to="/shop" className="flex items-center">
+                    <Link to="/shop" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaShoppingBag className="mx-1 text-md" />
                       Shop
                     </Link>
                   </li>
                   <li className="mx-4 relative">
                     {" "}
-                    <Link to="/cart" className="flex items-center">
+                    <Link to="/cart" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaShoppingCart className="mx-1 text-md" />
                       Cart{" "}
                       <span className="text-sm absolute top-[-50%] right-[-25px] bg-red-500 px-2 text-white rounded-md">
@@ -121,7 +130,7 @@ const Navbar = () => {
                 <Fragment>
                   <li className="mx-4">
                     {" "}
-                    <Link to="/admin/dashboard" className="flex items-center">
+                    <Link to="/admin/dashboard" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <MdDashboard className="mx-1 text-md" />
                       Dashboard
                     </Link>
@@ -135,7 +144,7 @@ const Navbar = () => {
                     {" "}
                     <button
                       onClick={handelLogout}
-                      className="flex items-center"
+                      className="flex items-center  hover:text-yellow-500 ease-in-out duration-150"
                     >
                       <MdLogout className="mx-1 text-md" />
                       LOGOUT
@@ -156,27 +165,27 @@ const Navbar = () => {
                   : "fixed left-[-100%] top-0 ease-in-out duration-500"
               }
             >
-              <h1 className="text-2xl font-bold m-6 text-[#7c2d12] ">LOGO.</h1>
+              <h1 className="text-2xl font-bold m-6 text-gray-800 mb-[4rem]"style={{fontFamily: "cursive"}}><Link to="/"> Gina's <i className="text-yellow-500">Kitchen</i></Link></h1>
 
               {!isAuthenticated() && (
                 <Fragment>
                   <li className="m-6 border-b">
                     {" "}
-                    <Link to="/" className="flex items-center">
+                    <Link to="/" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaHome className="mx-1 text-md" />
                       Home
                     </Link>
                   </li>
                   <li className="m-6 border-b">
                     {" "}
-                    <Link to="/shop" className="flex items-center">
+                    <Link to="/shop" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaShoppingBag className="mx-1 text-md" />
                       Shop
                     </Link>
                   </li>
                   <li className="m-6 border-b" style={{ position: "relative" }}>
                     {" "}
-                    <Link to="/cart" className="flex items-center">
+                    <Link to="/cart" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaShoppingCart className="mx-1 text-md" />
                       Cart{" "}
                       <span
@@ -193,14 +202,28 @@ const Navbar = () => {
                   </li>
                   <li className="m-6 border-b">
                     {" "}
-                    <Link to="/signin" className="flex items-center">
+                    <Link to="/about" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
+                      <FaInfo className="mx-1 text-md" />
+                      About
+                    </Link>
+                  </li>
+                  <li className="m-6 border-b">
+                    {" "}
+                    <Link to="/contact" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
+                      <FaPhone className="mx-1 text-md" />
+                      Contact
+                    </Link>
+                  </li>
+                  <li className="m-6 border-b">
+                    {" "}
+                    <Link to="/signin" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaSignInAlt className="mx-1 text-md" />
                       Sign In
                     </Link>
                   </li>
                   <li className="m-6">
                     {" "}
-                    <Link to="/signup" className="flex items-center">
+                    <Link to="/signup" className="flex items-center bg-yellow-500 py-2 text-white rounded-xl px-1">
                       <FaEdit className="mx-1 text-md" />
                       Sign Up
                     </Link>
@@ -211,28 +234,28 @@ const Navbar = () => {
                 <Fragment>
                   <li className="m-6 border-b">
                     {" "}
-                    <Link to="/user/dashboard" className="flex items-center">
+                    <Link to="/user/dashboard" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <MdDashboard className="mx-1 text-md" />
                       Dashboard
                     </Link>
                   </li>
                   <li className="m-6 border-b">
                     {" "}
-                    <Link to="/" className="flex items-center">
+                    <Link to="/" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaHome className="mx-1 text-md" />
                       Home
                     </Link>
                   </li>
                   <li className="m-6 border-b">
                     {" "}
-                    <Link to="/shop" className="flex items-center">
+                    <Link to="/shop" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaShoppingBag className="mx-1 text-md" />
                       Shop
                     </Link>
                   </li>
                   <li className="m-6 border-b" style={{ position: "relative" }}>
                     {" "}
-                    <Link to="/cart" className="flex items-center">
+                    <Link to="/cart" className="flex items-center  hover:text-yellow-500 ease-in-out duration-150">
                       <FaShoppingCart className="mx-1 text-md" />
                       Cart{" "}
                       <span

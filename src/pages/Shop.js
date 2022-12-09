@@ -53,14 +53,16 @@ const Shop = () => {
     setCategoryIds([])
   }
   return (
+    <section>
+
     <div className="m-3">
-      <div className="p-4 mt-[4rem] bg-gray-100 text-gray-700">
+      <div className="p-4 mt-[4rem] bg-gray-100 text-gray-800">
         <h2 className="font-semibold text-2xl md:text-4xl mb-5">Shop</h2>
       </div>
       <div className="grid lg:grid-cols-4 my-4">
         <div className="border-r">
           <div className="flex items-center">
-            <h4 className="text-gray-700 font-semibold text-lg mr-2">
+            <h4 className=" font-semibold text-lg mr-2 text-gray-800">
               {" "}
               Filters{" "}
             </h4>
@@ -99,7 +101,7 @@ const Shop = () => {
                           onChange={handelCategory}
                         />
                         <label
-                          className="form-check-label inline-block text-black"
+                          className="form-check-label inline-block text-gray-800"
                           htmlFor="flexCheckChecked"
                         >
                           {cat.category}
@@ -122,8 +124,9 @@ const Shop = () => {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
+      <Footer/>
+    </section>
   );
 };
 

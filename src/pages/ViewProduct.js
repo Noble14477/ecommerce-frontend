@@ -20,7 +20,7 @@ const ViewProduct = () => {
     <div className="mb-6 mt-[5rem]">
       <div className="mb-3 w-[100px] text-center md:ml-6">
         <button
-          className=" flex items-center justify-center border-2 border-blue-400 rounded-lg px-2 "
+          className=" flex items-center justify-center border-2 border-yellow-500 text-yellow-500 rounded-lg px-2 "
           onClick={() => {
             navigate(-1);
           }}

@@ -39,9 +39,11 @@ const Cart = () => {
     }
 
   return (
-    <section className="cartPage m-4 mt-1">
+    <section className="cartPage  mt-2">
+      <div className="m-4">
+
       {cart.length <= 0 ? (
-        <div className="p-4 mt-[4rem] bg-gray-100 text-gray-700">
+        <div className="p-4 mt-[4rem] bg-gray-100 text-gray-800 ">
           <h2 className="font-semibold text-2xl md:text-4xl mb-5">
             Your cart is empty
             <button
@@ -56,12 +58,12 @@ const Cart = () => {
         </div>
       ) : (
         <>
-          <div className="p-4 mt-[4rem] bg-gray-100 text-gray-700">
+          <div className="p-4 mt-[4rem] bg-gray-100 text-gray-800">
             <h2 className="font-semibold text-2xl md:text-4xl mb-5">Cart</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 w-full">
-            <div className="col-span-2 md:mb-0 mb-5">
-              <div className="table-auto">
+            <div className="col-span-2 md:mb-0 mb-5 mt-6">
+              <div className="table-auto border-r">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
@@ -76,7 +78,7 @@ const Cart = () => {
                         Quantity
                       </th>
                       <th >
-                        Remove
+                        Delete
                       </th>
                     </tr>
                   </thead>
@@ -141,12 +143,12 @@ const Cart = () => {
               </div>
             </div>
             <div className="pl-3 max-w-full mt-8 md:mt-0">
-              <h2 className="text-xl font-bold border-b py-4">Cart Summary</h2>
-              <p className=" py-4 border-b text-gray-500 text-lg">
+              <h2 className="text-xl font-bold border-b py-4 text-gray-800">Cart Summary</h2>
+              <p className=" py-4 border-b text-lg text-gray-800">
                 {cart.length === 1 ? `(1) Item` : `(${cart.length}): Items`}
               </p>
-              <p className="font-bold py-4 border-b text-xl">
-                Total:{" "}
+              <p className="font-bold py-4 border-b text-xl text-gray-800">
+                Total:{" "}$
                 {cart
                   .reduce(
                     (currentSum, currentCartItem) =>
@@ -158,7 +160,7 @@ const Cart = () => {
               </p>
               <div className="flex justify-center w-full">
                 <button
-                  className="w-full cursor-pointer bg-gray-800 text-white py-3 my-4 mb-10 text-md md:text-xl"
+                  className="w-full cursor-pointer bg-gray-800 text-white py-3 my-4 mb-10 text-md md:text-xl hover:bg-gray-600 ease-in-out duration-150"
                   onClick={handelCheckOut}
                 >
                   Proceed To Check
@@ -168,6 +170,7 @@ const Cart = () => {
           </div>
         </>
       )}
+      </div>
       <Footer/>
     </section>
   );

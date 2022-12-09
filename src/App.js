@@ -15,11 +15,16 @@ import Cart from "./pages/Cart";
 import Shipping from "./pages/Shipping";
 import Payment from "./pages/Payment";
 import PlaceOrder from "./pages/PlaceOrder";
+import ScrolToTop from "./ScrolToTop";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound404 from "./pages/404";
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+      <ScrolToTop/>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -31,6 +36,9 @@ const App = () => {
           <Route path="/payment" element={<Payment />} />
           <Route path="/placeOrder" element={<PlaceOrder />} />
           <Route path="/product/:productId" element={<ViewProduct />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/*" element={<NotFound404 />} />
 
           {/* UserDashboard Route */}
           <Route element={<UserRoute />}>

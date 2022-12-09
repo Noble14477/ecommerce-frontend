@@ -80,10 +80,12 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-[5rem]">
+    <section className="h-[100vh]">
+
+    <div className="flex flex-col justify-center items-center mt-[7rem]">
       {loading && <div className="w-full">{Loading()}</div>}
       <div className="text-center mt-10 ">
-        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl uppercase">
+        <h1 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl uppercase">
           Login
         </h1>
         <p className="text-lg text-gray-500 pb-3 md:text-xl lg:text-xl ">
@@ -105,7 +107,7 @@ const SignIn = () => {
             type="email"
             formNoValidate
             placeholder="Email"
-            className="w-[100%] bg-gray-100 outline-none rounded-sm p-3"
+            className="w-[100%] bg-gray-200 outline-none rounded-sm p-3"
           />
         </div>
         <div className="flex items-center w-full mt-4">
@@ -115,19 +117,23 @@ const SignIn = () => {
             value={password}
             type="password"
             placeholder="Password"
-            className="w-[100%] bg-gray-100 outline-none rounded-sm p-3"
+            className="w-[100%] bg-gray-200 outline-none rounded-sm p-3"
           />
         </div>
-        <button className="mt-4 w-full text-lg uppercase p-2 text-white rounded-sm bg-pink-600 hover:bg-pink-400">
+        <button className="mt-4 w-full text-lg uppercase p-2 text-white rounded-sm bg-gray-800 hover:bg-gray-600">
           Submit
         </button>
-        <p className="mt-3 text-lg font-bold">Don't have an account?</p>
-        <button className="w-full text-lg uppercase p-2 text-pink-600">
+        <p className="mt-3 text-lg font-bold text-gray-800">Don't have an account?</p>
+        <button className="w-full text-lg uppercase p-2 text-gray-800 hover:bg-yellow-500 ease-in-out duration-150 hover:text-white mt-2">
           <Link to="/signup">Sign Up</Link>{" "}
         </button>
       </form>
       <div className=""></div>
     </div>
+    <div className="mt-[1rem]">
+      <p className='text-center p-3 text-gray-800 text-md md:text-lg'>&copy;copywrite, Gina's Kitchen, 2022</p>
+      </div>
+    </section>
   );
 };
 

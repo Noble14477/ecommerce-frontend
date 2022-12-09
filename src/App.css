@@ -1,18 +1,22 @@
 .heroSection{
     height: 100vh;
     width: 100vw;
+    /* overflow: hidden; */
 }
 
 .hero{
-    background: url("./images/hero1.jpg") no-repeat center rgba(0,0,0, .6);
+    background: url("./images/hero1.jpg") no-repeat center rgba(15, 17, 37, 0.7);
     background-size: cover;
     height: 60%;
     background-blend-mode: overlay;
     color: white;
 }
 
-.header{
-    background: white;
-    /* backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px); */
+.blurDiv{
+    background: #9793971a;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding: 3rem 3rem ;
+    position: relative;
+    
 }
